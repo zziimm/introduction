@@ -1,9 +1,10 @@
 import './App.css';
-import { createGlobalStyle, styled } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import Header from './pages/Header';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
+import Skills from './components/Skills';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -38,6 +39,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<MainPage />}/>
+        <Route path='/skills' element={<Skills />} />
       </Routes>
     </>
   );
