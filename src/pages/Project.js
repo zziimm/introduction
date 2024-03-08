@@ -1,6 +1,6 @@
 import React from 'react';
 
-function History(props) {
+function Project(props) {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function History(props) {
   );
 }
 
-export default History;
+export default Project;

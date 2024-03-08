@@ -26,9 +26,11 @@ const TitleLogo = styled.div`
 const SubIcon = styled.div`
   font-weight: 700;
   font-size: 2rem;
-  cursor: pointer;
-
-  svg + svg {
+  
+  svg {
+    cursor: pointer;
+  }
+  a + svg {
     margin-left: 15px;
   }
 `
@@ -36,10 +38,8 @@ const SubIcon = styled.div`
 
 const MainInner = styled.div`
   width: 768px;
-  /* height: 340px; */
   margin: 0 auto;
   padding-top: 90px;
-  /* background: black; */
 
   font-family: "Berkshire Swash", serif;
   font-weight: 400;
@@ -121,6 +121,7 @@ const InfoBox = styled.div`
 `;
 
 const Tab = styled.div`
+  margin-bottom: 40px;
   ul {
     line-height: 2rem;
     display: flex;
@@ -169,7 +170,7 @@ function Header() {
               <li onClick={() => navigate('/')}>History</li>
               <li onClick={() => navigate('/skills')}>Skills</li>
               <li>Project</li>
-              <li>Pactice</li>
+              <li onClick={() => navigate('/practice')}>Practice</li>
             </ul>
           </Tab>
         </nav>

@@ -1,10 +1,13 @@
 import './App.css';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import Header from './pages/Header';
+import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
-import MainPage from './pages/MainPage';
-import Skills from './components/Skills';
+import Skills from './pages/Skills';
+import History from './pages/History';
+import Footer from './components/Footer';
+import Practice from './pages/Practice';
+import Project from './pages/Project';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -38,9 +41,12 @@ function App() {
       <GlobalStyle />
       <Header />
       <Routes>
-        <Route path='/' element={<MainPage />}/>
+        <Route path='/' element={<History />}/>
         <Route path='/skills' element={<Skills />} />
+        <Route path='/project' element={<Project />} />
+        <Route path='/practice' element={<Practice />} />
       </Routes>
+      <Footer />
     </>
   );
 }
