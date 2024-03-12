@@ -30,7 +30,7 @@ const SubIcon = styled.div`
   svg {
     cursor: pointer;
   }
-  a + svg {
+  svg + svg {
     margin-left: 15px;
   }
 `
