@@ -62,7 +62,7 @@ const detailText = {
   NodeJs: ['· Node.js의 장점인 싱글 스레드, non-blocking I/O를 이해하고 React와 연동해서 MVC패턴을 구축할 수 있습니다.', '· Swagger를 통해서 REST API를 설계한 경험이 있고 CRUD 처리를 할 수 있습니다.', '· try-catch문으로 예외처리을 하여 서버가 지속적으로 운영될 수 있도록 할 수 있습니다.', '· ejs문법을 사용할 수 있습니다.'],
   Express: ['· app.use()로 필요한 미들웨어를 작성하고 라우터를 분리할 수 있으며, res 메서드로 응답할 수 있습니다.', '· 에러 처리 미들웨어 작성을 통해 예치기 못하거나 특정 상황에 대비할 수 있습니다.', '· express-session으로 세션을 관리할 수 있고 passport.serializeUser로 세션에 저장, deserializeUser로 정보를 불러와서 로그인을 유지할 수 있습니다.'],
   Git: ['· github를 사용하며 GUI툴뿐만 아니라 CLI 명령어도 사용 가능합니다.', '· 팀프로젝트에서 git flow 전략을 사용해 버전을 관리한 경험이 있습니다.'],
-  AWS: ['multer와 multer-s3, aws-sdk/client-s3를 이용해 AWS S3에 이미지를 업로드하고 이미지 URL을 MongoDB에 저장하는 미들웨어를 사용할 수 있습니다.', '· Lightsail을 통해 서버를 배포한 경험이 있으며 EC2도 익히기 위한 학습을 진행 중입니다.'],
+  AWS: ['· multer와 multer-s3, aws-sdk/client-s3를 이용해 AWS S3에 이미지를 업로드하고 이미지 URL을 MongoDB에 저장하는 미들웨어를 사용할 수 있습니다.', '· Lightsail을 통해 서버를 배포한 경험이 있으며 EC2도 익히기 위한 학습을 진행 중입니다.'],
   Socket: ['· room 메서드를 이용해 유저간 1:1 실시간 채팅 기능을 구현한 경험이 있습니다.', '· 실시간 데이터 통신을 활용해서 실시간 알림과 확인한 채팅, 확인하지 않은 채팅방의 UI를 다르게 보이게 할 수 있습니다.'],
 }
 

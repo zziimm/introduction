@@ -1,5 +1,5 @@
-import React from 'react';
-import { styled } from 'styled-components';
+import React, { useState } from 'react';
+import { css, styled } from 'styled-components';
 import { FaGithub, FaEnvelope  } from "react-icons/fa6";
 import ProfileImg from "../images/Profile.jpg";
 import { useNavigate } from 'react-router-dom';
@@ -27,14 +27,53 @@ const SubIcon = styled.div`
   font-weight: 700;
   font-size: 2rem;
   
+  .mailBox {
+    display: inline;
+    position: relative;
+  }
   svg {
     cursor: pointer;
+    color: black;
   }
-  svg + svg {
+  a + div {
     margin-left: 15px;
   }
 `
 
+const MailModalBox = styled.div`
+  color: #fff;
+  position: absolute;
+  background: black;
+  font-size: 0.8rem;
+  padding: 10px 20px;
+  border-radius: 15px;
+  top: 60px;
+  right: 0;
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+  opacity: 0;
+  transition: .7s;
+
+  &:after {
+    border-top: 0px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid black;
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: 8px;
+  }
+
+  ${props => props.isClicked &&
+    css`
+      top: 40px;
+      transition: .5s;
+      opacity: 1;
+    `
+  }
+`;
 
 const MainInner = styled.div`
   width: 768px;
@@ -135,7 +174,12 @@ const Tab = styled.div`
 
 
 function Header() {
+  const [ mailModal, setMailModal ] = useState(false);
   const navigate = useNavigate();
+
+  const handleMailModal = () => {
+    setMailModal(!mailModal)
+  }
 
   return (
     <>
@@ -143,8 +187,12 @@ function Header() {
         <MainTitleBox>
           <TitleLogo>JStorming</TitleLogo>
           <SubIcon>
-            <FaGithub />
-            <FaEnvelope />
+            <a href='https://github.com/zziimm' target='_blank' rel='noreferrer noopener'><FaGithub /></a>
+            <div className='mailBox'>
+              <FaEnvelope onClick={handleMailModal} />
+              <MailModalBox isClicked={mailModal}>wlalscjs30@naver.com</MailModalBox>
+              {/* { mailModal ? <MailModalBox isClicked={mailModal}>wlalscjs30@naver.com</MailModalBox> : ''} */}
+            </div>
           </SubIcon>
         </MainTitleBox>
       </header>
@@ -169,7 +217,7 @@ function Header() {
             <ul>
               <li onClick={() => navigate('/')}>History</li>
               <li onClick={() => navigate('/skills')}>Skills</li>
-              <li>Project</li>
+              <li onClick={() => navigate('/project')}>Project</li>
               <li onClick={() => navigate('/practice')}>Practice</li>
             </ul>
           </Tab>
