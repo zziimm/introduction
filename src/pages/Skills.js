@@ -9,22 +9,20 @@ import { ReactComponent as ReduxIcon } from "../images/reduxIcon.svg";
 import { ReactComponent as ExpressIcon } from "../images/expressIcon.svg";
 import { ReactComponent as MongodbIcon } from "../images/mongodb.svg";
 import { ReactComponent as SocketioIcon } from "../images/socketio_logo_icon.svg";
-// import { ReactComponent as JSIcon } from "../images/javascript_icon.svg";
 
 const Inner = styled.div`
   display: flex;
 
   h1 {
-    margin-bottom: 10px;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
   }
 `;
 
 const SkillBox = styled.div`
-
+  width: 550px;
   svg {
     cursor: pointer;
-    /* transition: 1s; */
-    /* border: 2px dotted; */
     border-radius: 20px;
   }
   svg:hover {
@@ -42,15 +40,15 @@ const SkillBox = styled.div`
 `;
 
 const TextBox = styled.div`
-  width: 360px;
+  width: 650px;
   margin-left: 30px;
   p {
     font-family: "Gowun Batang", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 0.8rem;
-    padding-top: 15px;
-    line-height: 1rem;
+    font-size: 1.3rem;
+    padding-top: 20px;
+    line-height: 1.8rem;
   }
 `;
 
@@ -60,7 +58,7 @@ const detailText = {
   Redux: ['· Redux Store를 통해 전역 상태 관리를 할 수 있습니다.','· useDispatch와 useSelector를 이해하고 데이터를 이동시킬 수 있습니다.', '· thunk와 extraReducers를 이용해서 비동기 작업을 할 수 있으며 로딩 상태를 관리 할 수 있습니다.', '· Redux의 보일러 플레이트가 없어진 Redux Toolkit을 사용할 수 있습니다.'],
   MongoDB: ['· NoSQL을 이해하고 MongoDB Atlas를 사용 할 수 있습니다.', '· MongoDB의 연산자를 사용하여 데이터를 업데이트 할 수 있습니다.', '· search index를 이용해 데이터를 효율적으로 찾을 수 있고 aggregate 메서드를 사용해서 pipeline을 구축할 수 있습니다.', '· 데이터를 보다 효율적으로 사용하고 더 나은 UX를 만들기 위해 데이터들의 관계를 꾸준하게 생각하고 있습니다.'],
   NodeJs: ['· Node.js의 장점인 싱글 스레드, non-blocking I/O를 이해하고 React와 연동해서 MVC패턴을 구축할 수 있습니다.', '· Swagger를 통해서 REST API를 설계한 경험이 있고 CRUD 처리를 할 수 있습니다.', '· try-catch문으로 예외처리을 하여 서버가 지속적으로 운영될 수 있도록 할 수 있습니다.', '· ejs문법을 사용할 수 있습니다.'],
-  Express: ['· app.use()로 필요한 미들웨어를 작성하고 라우터를 분리할 수 있으며, res 메서드로 응답할 수 있습니다.', '· 에러 처리 미들웨어 작성을 통해 예치기 못하거나 특정 상황에 대비할 수 있습니다.', '· express-session으로 세션을 관리할 수 있고 passport.serializeUser로 세션에 저장, deserializeUser로 정보를 불러와서 로그인을 유지할 수 있습니다.'],
+  Express: ['· app.use()로 필요한 미들웨어를 작성하고 라우터를 분리할 수 있으며, res 메서드로 응답할 수 있습니다.', '· 에러 처리 미들웨어 작성을 통해 예치기 못하거나 특정 상황에 대비할 수 있습니다.', '· express-session으로 세션을 관리할 수 있고 passport로 세션에 저장하고 정보를 불러와서 로그인을 유지할 수 있습니다.'],
   Git: ['· github를 사용하며 GUI툴뿐만 아니라 CLI 명령어도 사용 가능합니다.', '· 팀프로젝트에서 git flow 전략을 사용해 버전을 관리한 경험이 있습니다.'],
   AWS: ['· multer와 multer-s3, aws-sdk/client-s3를 이용해 AWS S3에 이미지를 업로드하고 이미지 URL을 MongoDB에 저장하는 미들웨어를 사용할 수 있습니다.', '· Lightsail을 통해 서버를 배포한 경험이 있으며 EC2도 익히기 위한 학습을 진행 중입니다.'],
   Socket: ['· room 메서드를 이용해 유저간 1:1 실시간 채팅 기능을 구현한 경험이 있습니다.', '· 실시간 데이터 통신을 활용해서 실시간 알림과 확인한 채팅, 확인하지 않은 채팅방의 UI를 다르게 보이게 할 수 있습니다.'],
@@ -133,13 +131,13 @@ function Skills() {
         </div>
         <div>
           <MongodbIcon onClick={() => handleIcons('MongoDB')}/>
-          <NodeIcon style={{width: '98px'}} onClick={() => handleIcons('Node.js')}/>
-          <ExpressIcon onClick={() => handleIcons('Express')}/>
+          <NodeIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Node.js')}/>
+          <ExpressIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Express')}/>
         </div>
         <div>
           <GitIcon onClick={() => handleIcons('Git')}/>
           <AwsIcon onClick={() => handleIcons('AWS')}/>
-          <SocketioIcon onClick={() => handleIcons('Socket.io')}/>
+          <SocketioIcon  style={{marginLeft: '30px'}} onClick={() => handleIcons('Socket.io')}/>
         </div>
       </SkillBox>
       <TextBox>

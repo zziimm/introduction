@@ -8,7 +8,8 @@ const Inner = styled.div`
   font-style: normal;
   h1 {
     text-align: center;
-    margin-bottom: 20px;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
   }
 `;
 
@@ -26,6 +27,7 @@ function Practice() {
           username='zziimm'
           hideTotalCount='true'
           hideColorLegend='true'
+          blockSize={19}
         />
       </GitField>
     </Inner>
