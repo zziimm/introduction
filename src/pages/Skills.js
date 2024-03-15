@@ -31,6 +31,12 @@ const SkillBox = styled.div`
     border-radius: 20px;
     /* transition: 1s; */
   }
+  svg:focus {
+    transform: scale(1.1);
+    border: 2px dotted orange;
+    border-radius: 20px;
+    /* transition: 1s; */
+  }
   div + div {
     padding-top: 20px;
   }
@@ -65,21 +71,26 @@ const detailText = {
 }
 
 function Skills() {
-  const [subTitle, setSubTitle] = useState('React')
-  const [detail, setDetail] = useState(detailText.React)
-
+  const [subTitle, setSubTitle] = useState('Node.js')
+  const [detail, setDetail] = useState(detailText.NodeJs)
   function handleIcons(icon) {
     switch (icon) {
       case 'JS':
         setSubTitle('Javascript');
         setDetail(detailText.JS);
+        // function next() {
+        //   let copyDetail = [...detail]
+        //   copyDetail = [`${process.env.REACT_APP_JS}`]
+        //   setDetail(copyDetail);
+        // };
+        // next();
         break;
-
-      case 'React':
-        setSubTitle('React');
-        setDetail(detailText.React);
-        break;
-
+        
+        case 'React':
+          setSubTitle('React');
+          setDetail(detailText.React);
+          break;
+          
       case 'Redux':
         setSubTitle('Redux');
         setDetail(detailText.Redux);
