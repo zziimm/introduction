@@ -35,6 +35,11 @@ const SubIcon = styled.div`
   svg {
     cursor: pointer;
     color: black;
+    transition: 0.3s;
+    &:hover {
+      color: gray;
+      transition: 0.3s;
+    }
   }
   a + div {
     margin-left: 15px;
@@ -173,6 +178,12 @@ const Tab = styled.div`
   li {
     cursor: pointer;
     display: inline-block;
+    transition: 0.3s;
+    &:hover {
+      color: gray;
+      text-decoration: underline;
+      transition: 0.3s;
+    }
   }
 `;
 
@@ -184,6 +195,8 @@ function Header() {
   const handleMailModal = () => {
     setMailModal(!mailModal)
   }
+
+  
 
   return (
     <>
