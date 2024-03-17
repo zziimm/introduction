@@ -208,7 +208,6 @@ function Header() {
             <div className='mailBox'>
               <FaEnvelope onClick={handleMailModal} />
               <MailModalBox isClicked={mailModal}>wlalscjs30@naver.com</MailModalBox>
-              {/* { mailModal ? <MailModalBox isClicked={mailModal}>wlalscjs30@naver.com</MailModalBox> : ''} */}
             </div>
           </SubIcon>
         </MainTitleBox>
