@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 const FooterBox = styled.div`
-  margin-top: 100px;
+  margin-top: 9px;
   font-family: "Berkshire Swash", serif;
   font-weight: 400;
   font-style: normal;
