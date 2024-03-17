@@ -1,6 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import GoniModalSlide from '../slide/GoniModalSlide';
+import { FaGithub  } from "react-icons/fa6";
+
 
 const ModalBg = styled.div`
   width: 100vw;
@@ -74,6 +76,7 @@ const ModalBox = styled.div`
   }
   
   .git {
+    text-decoration: none;
     margin-top: 10px;
     background: black;
     color: white;
@@ -98,11 +101,11 @@ const ModalBox = styled.div`
     font-size: 1.1rem;
   }
   .summaryTextBox p + p {
-    margin-top: 10px;
+    margin-top: 5px;
   }
   .summaryInfo span {
     line-height: 1.2rem;
-    margin-top: 5px;
+    margin-top: 10px;
   }
   .summaryInfo span {
     display: inline-block;
@@ -136,20 +139,21 @@ function goniModal({ handleCloseMadal }) {
               <span className='toolText'>styled-components</span>
               <span className='toolText'>react-router-dom</span>
               <span className='toolText be'>MongoDB</span>
+              <span className='toolText be'>Node.js</span>
               <span className='toolText be'>Express</span>
               <span className='toolText be'>Passport</span>
             </p>
-            <p className='toolText git'>Github</p>
+            <a href='https://github.com/zziimm/teamstrong1000' target='_blank' rel='noreferrer noopener' className='toolText git'><FaGithub /> Github FE</a>
+            <a href='https://github.com/zziimm/teamServer' target='_blank' rel='noreferrer noopener' className='toolText git'><FaGithub /> Github BE</a>
             <p className='summaryHeader'>📋Summary</p>
             <div className='summaryTextBox'>
+              <p>· 팀장으로 진행</p>
               <p>· 팀원 구성: 풀스택3, 디자이너1</p>
               <p className='summaryInfo'>
                 <span>· 지역 내 배드민턴 활동을 활성화하기 위해 개발하게 되었습니다.</span>
-                <span>경기를 등록해 신청을 받고 경기 후에는 승패여부를 기록 할 수 있으며,</span>
+                <span>· 경기를 등록해 신청을 받고 경기 후에는 승패여부를 기록 할 수 있으며,</span>
                 <span>등록/신청 시 내일정에 일정이 바로 추가됩니다.</span>
-                <span>소통을 위한 클럽 기능과 커뮤니티 기능을 지원합니다.</span>
-              </p>
-              <p className='summaryInfo'>
+                <span>· 소통을 위한 클럽 기능과 커뮤니티 기능을 지원합니다.</span>
                 <span>· 회원가입 시 비밀번호를 bcrypt로 암호화하여 지정된 양식에 맞는 회원정보를 입력받기 위해 유효성 검사를 진행합니다.</span>
                 <span>· 지도는 NaverMap api를 사용하여 체육관을 확인할 수 있습니다.</span>
                 <span>· FullCalendar 라이브러리에 google calendar api를 적용하였습니다.</span>

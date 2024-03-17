@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import GoniModalSlide from '../slide/GoniModalSlide';
+import MongModalSlide from '../slide/MongModalSlide';
+import { FaGithub  } from "react-icons/fa6";
 
 const ModalBg = styled.div`
   width: 100vw;
@@ -68,12 +69,13 @@ const ModalBox = styled.div`
     font-style: normal;
     border-radius: 8px;
     border: 1px solid gray;
-    padding: 3px 3px;
+    padding: 3px 4px;
     margin-left: 5px;
     margin-bottom: 5px;
   }
   
   .git {
+    text-decoration: none;
     margin-top: 10px;
     background: black;
     color: white;
@@ -102,7 +104,7 @@ const ModalBox = styled.div`
   }
   .summaryInfo span {
     line-height: 1.2rem;
-    margin-top: 5px;
+    margin-top: 10px;
   }
   .summaryInfo span {
     display: inline-block;
@@ -120,12 +122,12 @@ function goniModal({ handleCloseMadal }) {
       <ModalBox>
         <div className='headerBox'>
           <p className='closeBtn' onClick={() => handleCloseMadal()}>❌</p>
-          <h1>GoniMinton</h1>
-          <p>🏸배드민턴 매칭 및 커뮤니티 웹서비스</p>
+          <h1>My Mong</h1>
+          <p>🐶애견 맞춤 정보와 커뮤니티 및 상품 제공 웹서비스</p>
         </div>
         <div className='detailBox'>
           <div className='imgBox'>
-            <GoniModalSlide />
+            <MongModalSlide />
           </div>
           <div className='textBox'>
             <p>
@@ -133,27 +135,28 @@ function goniModal({ handleCloseMadal }) {
               <span className='toolText'>React</span>
               <span className='toolText'>Rudex</span>
               <span className='toolText'>Aioxs</span>
+              <span className='toolText'>EJS</span>
               <span className='toolText'>styled-components</span>
               <span className='toolText'>react-router-dom</span>
               <span className='toolText be'>MongoDB</span>
+              <span className='toolText be'>Node.js</span>
               <span className='toolText be'>Express</span>
               <span className='toolText be'>Passport</span>
+              <span className='toolText be'>Socket.io</span>
+              <span className='toolText be'>AWS S3</span>
             </p>
-            <p className='toolText git'>Github</p>
+            <a href='https://github.com/zziimm/finalProject' target='_blank' rel='noreferrer noopener' className='toolText git'><FaGithub /> Github FE</a>
+            <a href='https://github.com/zziimm/finalProjectServer' target='_blank' rel='noreferrer noopener' className='toolText git'><FaGithub /> Github BE</a>
             <p className='summaryHeader'>📋Summary</p>
             <div className='summaryTextBox'>
-              <p>· 팀원 구성: 풀스택3, 디자이너1</p>
+              <p>· BackEnd 팀장으로 진행</p>
+              <p>· 팀원 구성: FrontEnd 4, BackEnd 2</p>
               <p className='summaryInfo'>
-                <span>· 지역 내 배드민턴 활동을 활성화하기 위해 개발하게 되었습니다.</span>
-                <span>경기를 등록해 신청을 받고 경기 후에는 승패여부를 기록 할 수 있으며,</span>
-                <span>등록/신청 시 내일정에 일정이 바로 추가됩니다.</span>
-                <span>소통을 위한 클럽 기능과 커뮤니티 기능을 지원합니다.</span>
-              </p>
-              <p className='summaryInfo'>
-                <span>· 회원가입 시 비밀번호를 bcrypt로 암호화하여 지정된 양식에 맞는 회원정보를 입력받기 위해 유효성 검사를 진행합니다.</span>
-                <span>· 지도는 NaverMap api를 사용하여 체육관을 확인할 수 있습니다.</span>
-                <span>· FullCalendar 라이브러리에 google calendar api를 적용하였습니다.</span>
-                <span>. FE에선 Redux Store, BE에서는 passport로 미들웨어를 설정해 회원을 식별합니다.</span>
+                <span>· 반려견에 대한 맞춤형 정보를 제공하고 공유하며, 자사 제품을 직접 홍보/판매하기 위해 개발되었습니다.</span>
+                <span>· 회원은 가입 시 입력한 반려견의 몸무게, 나이 등을 기반으로 커뮤니티의 관련글과 반려견 조건 맞는 상품을 추천을 수 있습니다.</span>
+                <span>· kakakoMap api를 사용한 지도로 주변 산책로를 검색할 수 있습니다.</span>
+                <span>· Socket.io로 실시간 채팅 1:1이 가능하고 확인하지 않은 채팅에 대한 알림 기능이 있습니다.</span>
+                <span>· 상품 목록은 8개씩 확인 가능하고 BE MongoDB 연산자를 이용해서 필요한 데이터만 전달할 수 있게 pipeline을 설계했습니다.</span>
               </p>
             </div>
           </div>

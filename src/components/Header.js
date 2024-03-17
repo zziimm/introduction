@@ -20,6 +20,7 @@ const MainTitleBox = styled.div`
 `;
 
 const TitleLogo = styled.div`
+  cursor: pointer;
   font-weight: 700;
   font-size: 3rem;
 `;
@@ -188,7 +189,7 @@ function Header() {
     <>
       <header>
         <MainTitleBox>
-          <TitleLogo>JStorming</TitleLogo>
+          <TitleLogo onClick={() => navigate('/')}>JStorming</TitleLogo>
           <SubIcon>
             <a href='https://github.com/zziimm' target='_blank' rel='noreferrer noopener'><FaGithub /></a>
             <div className='mailBox'>
@@ -211,7 +212,7 @@ function Header() {
             <p className='birthday'>🧁1996. 08. 30</p>
             <div className='target'>
               <p>'만약'을 생각하는 개발자</p>
-              <p>이해하며 흡수하는 개발자</p>
+              <p>결과보단 과정에 더 집중하는 개발자</p>
             </div>
           </div>
         </InfoBox>

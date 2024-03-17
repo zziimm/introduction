@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import goniThum from "../images/goni_thum.png";
 import myMongThum from "../images/mong_thum.png";
 import GoniModal from "../components/modal/GoniModal";
+import MongModal from "../components/modal/MongModal";
 
 
 const Inner = styled.div`
@@ -83,7 +84,7 @@ function Project() {
         </ThumbnailItem>
       </div>
       {thumModal1 ? <GoniModal handleCloseMadal={() => handleCloseMadal('1') }/> : ''}
-      {/* {thumModal2 ? <GoniModal handleCloseMadal={() => handleCloseMadal('2') }/> : ''} */}
+      {thumModal2 ? <MongModal handleCloseMadal={() => handleCloseMadal('2') }/> : ''}
     </Inner>
   );
 }
