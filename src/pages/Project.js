@@ -17,8 +17,11 @@ const Inner = styled.div`
   .thumbnailInner {
     display: flex;
     gap: 40px;
+    @media screen and (max-width: 480px) {
+      display: block;
+    }
   }
-`;
+  `;
 
 const ThumbnailItem = styled.div`
   border: 1px solid gray;
@@ -26,17 +29,32 @@ const ThumbnailItem = styled.div`
   padding: 5px;
   transition: 0.5s;
   cursor: pointer;
-
+  
+  @media screen and (max-width: 480px) {
+    display: flex;
+    justify-content: center;
+    width: 370px;
+    margin: 0 auto;
+    
+    & + & {
+      margin-top: 30px;
+    }
+  }
   &:hover {
     background: gray;
     transition: 0.5s;
-    transform: scale(1.1);
+    transform: scale(1.07);
   }
   
   img {
     border-radius: 15px;
     width: 23rem;
     height: 180px;
+    @media screen and (max-width: 480px) {
+      width: 350px;
+      height: 170px;
+    }
+
   }
   
 `;

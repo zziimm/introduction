@@ -13,9 +13,9 @@ const MainTitleBox = styled.div`
   font-weight: 400;
   font-style: normal;
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 480px) {
     padding: 10px 30px;
-    
+    width: 100%;
   }
 `;
 
@@ -23,11 +23,20 @@ const TitleLogo = styled.div`
   cursor: pointer;
   font-weight: 700;
   font-size: 3rem;
+
+  @media screen and (max-width: 480px) {
+    font-size: 2.2rem;
+  }
+
 `;
+
 const SubIcon = styled.div`
   font-weight: 700;
   font-size: 3rem;
   
+  @media screen and (max-width: 480px) {
+    font-size: 2.3rem;
+  }
   .mailBox {
     display: inline;
     position: relative;
@@ -61,6 +70,10 @@ const MailModalBox = styled.div`
   opacity: 0;
   transition: .7s;
 
+  @media screen and (max-width: 480px) {
+    top: 45px;
+    right: -5px;
+  }
   &:after {
     border-top: 0px solid transparent;
     border-left: 10px solid transparent;
@@ -70,6 +83,10 @@ const MailModalBox = styled.div`
     position: absolute;
     top: -9px;
     right: 15px;
+    @media screen and (max-width: 480px) {
+      top: -9px;
+      right: 12px;
+    }
   }
 
   ${props => props.isClicked &&
@@ -88,24 +105,29 @@ const MainInner = styled.div`
   font-family: "Berkshire Swash", serif;
   font-weight: 400;
   font-style: normal;
-  /* @media screen and (max-width: 1055px) {
+  
+  @media screen and (max-width: 480px) {
     width: 100%;
+    padding-top: 40px;
   }
-  @media screen and (max-width: 1440px) {
+  /* @media screen and (max-width: 1440px) {
     width: 1024px;
-  }
-  @media screen and (max-width: 1728px) {
+  } */
+  /* @media screen and (max-width: 1728px) {
     width: 1376px;
   } */
 `;
 
 const InfoBox = styled.div`
   display: flex;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
   border-bottom: 1px dashed gray;
   justify-content: space-between;
   /* align-items: center; */
   margin: 0 auto;
+  @media screen and (max-width: 480px) {
+    display: block;
+  }
 
   .imgOutline {
     width: 370px;
@@ -115,6 +137,11 @@ const InfoBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 480px) {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+    }
   }
 
   .myImg {
@@ -125,22 +152,40 @@ const InfoBox = styled.div`
     background-position-y: 24%;
     background-repeat: no-repeat;
     background-size: cover;
+    @media screen and (max-width: 480px) {
+      width: 210px;
+      height: 210px;
+    }
   }
   
   .myInt {
     width: 620px;
     height: 250px;
+    @media screen and (max-width: 480px) {
+      width: 100%;
+      margin-bottom: 100px;
+    }
     
     h1, h2 {
       text-align: end;
+      @media screen and (max-width: 480px) {
+        text-align: center;
+      }
     }
     h1 {
       font-size: 4rem;
       line-height: 4.6rem;
+      @media screen and (max-width: 480px) {
+        font-size: 3rem;
+        line-height: 3.6rem;
+      }
     }
     h2 {
       font-size: 2rem;
       padding: 5px 0 30px;
+      @media screen and (max-width: 480px) {
+        font-size: 1.5rem;
+      }
     }
     .postion {
       padding-top: 20px;
@@ -169,11 +214,17 @@ const InfoBox = styled.div`
 
 const Tab = styled.div`
   margin-bottom: 40px;
+  @media screen and (max-width: 480px) {
+    margin-bottom: 30px;
+  }
   ul {
     font-size: 1.5rem;
     line-height: 3rem;
     display: flex;
     justify-content: space-around;
+    @media screen and (max-width: 480px) {
+      padding-top: 10px;
+    }
   }
   li {
     cursor: pointer;
