@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { css, styled } from 'styled-components';
 import { FaGithub, FaEnvelope  } from "react-icons/fa6";
 import ProfileImg from "../images/Profile.jpg";
 import { useNavigate } from 'react-router-dom';
+import { Typewriter } from "react-simple-typewriter";
 
 const MainTitleBox = styled.div`
   height: 3rem;
@@ -14,9 +15,11 @@ const MainTitleBox = styled.div`
   font-style: normal;
   
   @media screen and (max-width: 480px) {
-    padding: 10px 30px;
+    padding: 10px 20px;
     width: 100%;
   }
+
+
 `;
 
 const TitleLogo = styled.div`
@@ -24,10 +27,95 @@ const TitleLogo = styled.div`
   font-weight: 700;
   font-size: 3rem;
 
-  @media screen and (max-width: 480px) {
-    font-size: 2.2rem;
+  .wrapper {
+    position: relative;
+    width: 235px;
+    height: 70px;
+    white-space: nowrap;
+    @media screen and (max-width: 480px) {
+      width: 0;
+      height: 0;
+    }
   }
 
+  .focus {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    filter: blur(3px);
+    font-size: 65px;
+    opacity: 0.6;
+    @media screen and (max-width: 480px) {
+      text-transform: none;
+      font-size: 2.4rem;
+      letter-spacing: 0px;
+      opacity: 1;
+    }
+  }
+
+  .mask {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    width: 70px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 65px;
+    clip: rect(0px,100px,80px,0px);
+    background: linear-gradient($target, $target 0) no-repeat,
+      linear-gradient(to right, $target, $target 0) no-repeat,
+      linear-gradient(to right, $target, $target 0) bottom left no-repeat,
+      linear-gradient(to right, $target, $target 0) bottom left no-repeat,
+      linear-gradient($target, $target 0) bottom right no-repeat,
+      linear-gradient($target, $target 0) bottom right no-repeat,
+      linear-gradient($target, $target 0) top right no-repeat,
+      linear-gradient($target, $target 0) top right no-repeat;
+    background-size: 10px 2px, 2px 10px, 2px 10px, 10px 2px, 2px 10px, 10px 2px, 10px 2px, 2px 10px, 10px 2px;
+    padding: 5px;
+    transform: translateX(0);
+    box-sizing: border-box;
+    animation: mask 2.5s ease infinite alternate;
+    @media screen and (max-width: 480px) {
+      text-transform: none;
+      letter-spacing: 0px;
+      font-size: 2.4rem;
+      padding-top: 5px;
+      letter-spacing: 0px;
+      clip: rect(0px,80px,50px,0px);
+    }
+  }
+
+  .text {
+    transform: translateX(0);
+    animation: text 2.5s ease infinite alternate;
+  }
+
+  @keyframes mask {
+    to {
+      transform: translateX(340px);
+    }
+  }
+  @media screen and (max-width: 480px) {
+    @keyframes mask {
+      to {
+        transform: translateX(100px);
+      }
+    }
+  }
+  
+  @keyframes text {
+    to {
+      transform: translateX(-340px);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    @keyframes text {
+      to {
+        transform: translateX(-100px);
+      }
+    }
+  }
 `;
 
 const SubIcon = styled.div`
@@ -108,7 +196,6 @@ const MainInner = styled.div`
   
   @media screen and (max-width: 480px) {
     width: 100%;
-    padding-top: 40px;
   }
   /* @media screen and (max-width: 1440px) {
     width: 1024px;
@@ -123,7 +210,6 @@ const InfoBox = styled.div`
   padding-bottom: 50px;
   border-bottom: 1px dashed gray;
   justify-content: space-between;
-  /* align-items: center; */
   margin: 0 auto;
   @media screen and (max-width: 480px) {
     display: block;
@@ -180,6 +266,7 @@ const InfoBox = styled.div`
         line-height: 3.6rem;
       }
     }
+
     h2 {
       font-size: 2rem;
       padding: 5px 0 30px;
@@ -236,6 +323,11 @@ const Tab = styled.div`
       transition: 0.3s;
     }
   }
+  li.active {
+    color: gray;
+    text-decoration: underline;
+    transition: 0.3s;
+  }
 `;
 
 
@@ -243,17 +335,54 @@ function Header() {
   const [ mailModal, setMailModal ] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const btn = document.querySelectorAll(".button");
+    btn.forEach( function (btn, i) {
+      if (window.location.href.split('/').pop() === btn.innerHTML.toLocaleLowerCase()) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
+    const mainpage = document.querySelector(".mainpage");
+    if (window.location.href.split('/').pop() === '') {
+      mainpage.classList.add("active");
+    } else {
+      mainpage.classList.remove("active");
+    }
+  }, [])
+  
+
   const handleMailModal = () => {
     setMailModal(!mailModal)
   }
-
-  
+  const handleBtnEffect = (e) => {
+    const btn = document.querySelectorAll(".button");
+    btn.forEach( function (btn, i) {
+      if (e.currentTarget === btn) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    })
+    console.log(window.location.href.split('/'));
+  }
 
   return (
     <>
       <header>
         <MainTitleBox>
-          <TitleLogo onClick={() => navigate('/')}>JStorming</TitleLogo>
+          <TitleLogo>
+            <div onClick={() => navigate('/')} class="wrapper">
+              <div class="focus">
+                JStorming
+              </div>
+              <div class="mask">
+                <div class="text">JStorming</div>
+              </div>
+            </div>
+          </TitleLogo>
           <SubIcon>
             <a href='https://github.com/zziimm' target='_blank' rel='noreferrer noopener'><FaGithub /></a>
             <div className='mailBox'>
@@ -266,7 +395,9 @@ function Header() {
 
       <MainInner>
         <InfoBox>
-          <div className='imgOutline'><div className='myImg'></div></div>
+          <div className='imgOutline'>
+            <div className='myImg'></div>
+          </div>
           <div className='myInt'>
             <h1 className='postion'>Full-Stack Developer</h1>
             <h1 className='level'>Rookie</h1>
@@ -274,18 +405,50 @@ function Header() {
             <p className='name'>천지민</p>
             <p className='birthday'>🧁1996. 08. 30</p>
             <div className='target'>
-              <p>'만약'을 생각하는 개발자</p>
-              <p>결과보단 과정에 더 집중하는 개발자</p>
+              <p>
+                <Typewriter 
+                  words={["'만약'을 생각하는 개발자", "결과보단 과정에 더 집중하는 개발자"]}
+                  loop={0}
+                  cursor
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </p>
             </div>
           </div>
         </InfoBox>
         <nav>
           <Tab>
             <ul>
-              <li onClick={() => navigate('/')}>History</li>
-              <li onClick={() => navigate('/skills')}>Skills</li>
-              <li onClick={() => navigate('/project')}>Project</li>
-              <li onClick={() => navigate('/practice')}>Practice</li>
+              <li 
+                className='button mainpage' 
+                onClick={(e) => {
+                  navigate('/')
+                  handleBtnEffect(e)
+                }}>History
+              </li>
+              <li 
+                className='button' 
+                onClick={(e) => {
+                  navigate('/skills')
+                  handleBtnEffect(e)
+                }}>Skills
+              </li>
+              <li 
+                className='button' 
+                onClick={(e) => {
+                  navigate('/project')
+                  handleBtnEffect(e)
+                }}>Project
+              </li>
+              <li 
+                className='button' 
+                onClick={(e) => {
+                  navigate('/practice')
+                  handleBtnEffect(e)
+                }}>Practice
+              </li>
             </ul>
           </Tab>
         </nav>
