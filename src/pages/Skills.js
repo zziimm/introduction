@@ -158,7 +158,18 @@ function Skills() {
     <Inner className='mainInner'>
       <SkillBox>
         <h1>Stack</h1>
-        { slideWidth >= 1024 
+          <>
+            <JSIcon onClick={() => handleIcons('JS')}/>
+            <ReactIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('React')}/>
+            <ReduxIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Redux')}/>
+            <MongodbIcon onClick={() => handleIcons('MongoDB')}/>
+            <NodeIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Node.js')}/>
+            <ExpressIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Express')}/>
+            <GitIcon onClick={() => handleIcons('Git')}/>
+            <AwsIcon className='aws' onClick={() => handleIcons('AWS')}/>
+            <SocketioIcon className='socket' style={{marginLeft: '30px'}} onClick={() => handleIcons('Socket.io')}/>
+          </>
+        {/* slideWidth >= 1024 
           ? 
             <>
               <JSIcon onClick={() => handleIcons('JS')}/>
@@ -175,7 +186,7 @@ function Skills() {
             <>
               <p>슬라이드 영역</p>
             </>
-        }
+        */}
         {/* <div>
           <JSIcon onClick={() => handleIcons('JS')}/>
           <ReactIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('React')}/>
