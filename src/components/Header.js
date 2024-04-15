@@ -14,6 +14,10 @@ const MainTitleBox = styled.div`
   font-weight: 400;
   font-style: normal;
   
+  @media screen and (max-width: 786px) {
+    padding: 20px 40px;
+    width: 100%;
+  }
   @media screen and (max-width: 480px) {
     padding: 10px 20px;
     width: 100%;
@@ -32,6 +36,10 @@ const TitleLogo = styled.div`
     width: 235px;
     height: 70px;
     white-space: nowrap;
+    @media screen and (max-width: 786px) {
+      width: 0;
+      height: 0;
+    }
     @media screen and (max-width: 480px) {
       width: 0;
       height: 0;
@@ -44,6 +52,12 @@ const TitleLogo = styled.div`
     filter: blur(3px);
     font-size: 65px;
     opacity: 0.6;
+    @media screen and (max-width: 786px) {
+      text-transform: none;
+      font-size: 3.6rem;
+      letter-spacing: 0px;
+      opacity: 1;
+    }
     @media screen and (max-width: 480px) {
       text-transform: none;
       font-size: 2.4rem;
@@ -75,6 +89,15 @@ const TitleLogo = styled.div`
     transform: translateX(0);
     box-sizing: border-box;
     animation: mask 2.5s ease infinite alternate;
+
+    @media screen and (max-width: 786px) {
+      text-transform: none;
+      letter-spacing: 0px;
+      font-size: 3.6rem;
+      padding-top: 5px;
+      letter-spacing: 0px;
+      clip: rect(0px,80px,80px,0px);
+    }
     @media screen and (max-width: 480px) {
       text-transform: none;
       letter-spacing: 0px;
@@ -95,6 +118,13 @@ const TitleLogo = styled.div`
       transform: translateX(340px);
     }
   }
+  @media screen and (max-width: 786px) {
+    @keyframes mask {
+      to {
+        transform: translateX(180px);
+      }
+    }
+  }
   @media screen and (max-width: 480px) {
     @keyframes mask {
       to {
@@ -109,6 +139,13 @@ const TitleLogo = styled.div`
     }
   }
 
+  @media screen and (max-width: 786px) {
+    @keyframes text {
+      to {
+        transform: translateX(-180px);
+      }
+    }
+  }
   @media screen and (max-width: 480px) {
     @keyframes text {
       to {
@@ -121,7 +158,10 @@ const TitleLogo = styled.div`
 const SubIcon = styled.div`
   font-weight: 700;
   font-size: 3rem;
-  
+  padding-top: 10px;
+  @media screen and (max-width: 786px) {
+    font-size: 2.6rem;
+  }
   @media screen and (max-width: 480px) {
     font-size: 2.3rem;
   }
@@ -162,6 +202,7 @@ const MailModalBox = styled.div`
     top: 45px;
     right: -5px;
   }
+
   &:after {
     border-top: 0px solid transparent;
     border-left: 10px solid transparent;
@@ -177,7 +218,7 @@ const MailModalBox = styled.div`
     }
   }
 
-  ${props => props.isClicked &&
+  ${props => props.$isClicked &&
     css`
       top: 55px;
       transition: .5s;
@@ -194,15 +235,18 @@ const MainInner = styled.div`
   font-weight: 400;
   font-style: normal;
   
+  @media screen and (max-width: 1250px) {
+    width: 1000px;
+  }
+  @media screen and (max-width: 1024px) {
+    width: 800px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 500px;
+  }
   @media screen and (max-width: 480px) {
     width: 100%;
   }
-  /* @media screen and (max-width: 1440px) {
-    width: 1024px;
-  } */
-  /* @media screen and (max-width: 1728px) {
-    width: 1376px;
-  } */
 `;
 
 const InfoBox = styled.div`
@@ -211,6 +255,11 @@ const InfoBox = styled.div`
   border-bottom: 1px dashed gray;
   justify-content: space-between;
   margin: 0 auto;
+
+
+  @media screen and (max-width: 786px) {
+    display: block;
+  }
   @media screen and (max-width: 480px) {
     display: block;
   }
@@ -223,6 +272,12 @@ const InfoBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media screen and (max-width: 1024px) {
+      width: 350px;
+      height: 350px;
+      margin: 0 auto;
+    }
     @media screen and (max-width: 480px) {
       width: 220px;
       height: 220px;
@@ -238,6 +293,10 @@ const InfoBox = styled.div`
     background-position-y: 24%;
     background-repeat: no-repeat;
     background-size: cover;
+    @media screen and (max-width: 1024px) {
+      width: 330px;
+      height: 330px;
+    }
     @media screen and (max-width: 480px) {
       width: 210px;
       height: 210px;
@@ -247,6 +306,13 @@ const InfoBox = styled.div`
   .myInt {
     width: 620px;
     height: 250px;
+    @media screen and (max-width: 1024px) {
+      width: 400px;
+    }
+    @media screen and (max-width: 786px) {
+      width: 100%;
+      margin-bottom: 100px;
+    }
     @media screen and (max-width: 480px) {
       width: 100%;
       margin-bottom: 100px;
@@ -254,6 +320,9 @@ const InfoBox = styled.div`
     
     h1, h2 {
       text-align: end;
+      @media screen and (max-width: 786px) {
+        text-align: center;
+      }
       @media screen and (max-width: 480px) {
         text-align: center;
       }
@@ -261,6 +330,11 @@ const InfoBox = styled.div`
     h1 {
       font-size: 4rem;
       line-height: 4.6rem;
+      @media screen and (max-width: 1024px) {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        
+      }
       @media screen and (max-width: 480px) {
         font-size: 3rem;
         line-height: 3.6rem;
@@ -374,12 +448,12 @@ function Header() {
       <header>
         <MainTitleBox>
           <TitleLogo>
-            <div onClick={() => navigate('/')} class="wrapper">
-              <div class="focus">
+            <div onClick={() => navigate('/')} className="wrapper">
+              <div className="focus">
                 JStorming
               </div>
-              <div class="mask">
-                <div class="text">JStorming</div>
+              <div className="mask">
+                <div className="text">JStorming</div>
               </div>
             </div>
           </TitleLogo>
@@ -387,7 +461,7 @@ function Header() {
             <a href='https://github.com/zziimm' target='_blank' rel='noreferrer noopener'><FaGithub /></a>
             <div className='mailBox'>
               <FaEnvelope onClick={handleMailModal} />
-              <MailModalBox isClicked={mailModal}>wlalscjs30@naver.com</MailModalBox>
+              <MailModalBox $isClicked={mailModal}>wlalscjs30@naver.com</MailModalBox>
             </div>
           </SubIcon>
         </MainTitleBox>

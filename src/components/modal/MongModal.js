@@ -4,8 +4,8 @@ import MongModalSlide from '../slide/MongModalSlide';
 import { FaGithub  } from "react-icons/fa6";
 
 const ModalBg = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;

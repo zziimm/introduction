@@ -17,6 +17,9 @@ const Inner = styled.div`
   .thumbnailInner {
     display: flex;
     gap: 40px;
+    @media screen and (max-width: 786px) {
+      display: block;
+    }
     @media screen and (max-width: 480px) {
       display: block;
     }
@@ -30,6 +33,16 @@ const ThumbnailItem = styled.div`
   transition: 0.5s;
   cursor: pointer;
   
+  @media screen and (max-width: 786px) {
+    display: flex;
+    justify-content: center;
+    width: 380px;
+    margin: 0 auto;
+    
+    & + & {
+      margin-top: 30px;
+    }
+  }
   @media screen and (max-width: 480px) {
     display: flex;
     justify-content: center;

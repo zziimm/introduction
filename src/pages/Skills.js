@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { styled } from 'styled-components';
 import { ReactComponent as JSIcon } from "../images/JSIcon.svg";
 import { ReactComponent as AwsIcon } from "../images/awsIcon.svg";
@@ -12,18 +12,39 @@ import { ReactComponent as SocketioIcon } from "../images/socketio_logo_icon.svg
 
 const Inner = styled.div`
   display: flex;
-
+  @media screen and (max-width: 1250px) {
+    justify-content: space-evenly;
+  }
+  @media screen and (max-width: 1024px) {
+    display: block;
+  }
   h1 {
     font-size: 2.4rem;
     margin-bottom: 30px;
+    @media screen and (max-width: 1250px) {
+      text-align: center;
+    }
   }
 `;
 
 const SkillBox = styled.div`
   width: 550px;
+  @media screen and (max-width: 1250px) {
+    width: 470px;
+  }
+
   svg {
+    margin-top: 20px;
     cursor: pointer;
     border-radius: 20px;
+    @media screen and (max-width: 1250px) {
+      width: 140px;
+    }
+  }
+  svg.aws,
+  svg.socket {
+    margin-left: 20px;
+
   }
   svg:hover {
     transform: scale(1.1);
@@ -37,17 +58,14 @@ const SkillBox = styled.div`
     border-radius: 20px;
     /* transition: 1s; */
   }
-  div + div {
-    padding-top: 20px;
-  }
-  div > svg + svg {
-    margin-left: 20px;
-  }
 `;
 
 const TextBox = styled.div`
   width: 650px;
   margin-left: 30px;
+  @media screen and (max-width: 1250px) {
+    width: 505px;
+  }
   p {
     font-family: "Gowun Batang", serif;
     font-weight: 400;
@@ -73,17 +91,19 @@ const detailText = {
 function Skills() {
   const [subTitle, setSubTitle] = useState('Node.js')
   const [detail, setDetail] = useState(detailText.NodeJs)
+  const [slideWidth, setSlideWidth] = useState('')
+  
+  useEffect(() => {
+    setSlideWidth(window.innerWidth);
+    console.log(window.innerWidth);
+    console.log(slideWidth);
+  }, [slideWidth]);
+
   function handleIcons(icon) {
     switch (icon) {
       case 'JS':
         setSubTitle('Javascript');
         setDetail(detailText.JS);
-        // function next() {
-        //   let copyDetail = [...detail]
-        //   copyDetail = [`${process.env.REACT_APP_JS}`]
-        //   setDetail(copyDetail);
-        // };
-        // next();
         break;
         
         case 'React':
@@ -131,11 +151,32 @@ function Skills() {
     }
   }
 
+  // console.log(window.innerWidth);
+
+
   return (
     <Inner className='mainInner'>
       <SkillBox>
         <h1>Stack</h1>
-        <div>
+        { slideWidth >= 1024 
+          ? 
+            <>
+              <JSIcon onClick={() => handleIcons('JS')}/>
+              <ReactIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('React')}/>
+              <ReduxIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Redux')}/>
+              <MongodbIcon onClick={() => handleIcons('MongoDB')}/>
+              <NodeIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Node.js')}/>
+              <ExpressIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Express')}/>
+              <GitIcon onClick={() => handleIcons('Git')}/>
+              <AwsIcon className='aws' onClick={() => handleIcons('AWS')}/>
+              <SocketioIcon className='socket' style={{marginLeft: '30px'}} onClick={() => handleIcons('Socket.io')}/>
+            </>
+          :
+            <>
+              <p>슬라이드 영역</p>
+            </>
+        }
+        {/* <div>
           <JSIcon onClick={() => handleIcons('JS')}/>
           <ReactIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('React')}/>
           <ReduxIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Redux')}/>
@@ -149,12 +190,12 @@ function Skills() {
           <GitIcon onClick={() => handleIcons('Git')}/>
           <AwsIcon onClick={() => handleIcons('AWS')}/>
           <SocketioIcon  style={{marginLeft: '30px'}} onClick={() => handleIcons('Socket.io')}/>
-        </div>
+        </div> */}
       </SkillBox>
       <TextBox>
         <h1>{subTitle}</h1>
-        {detail.map((text) => {
-          return <p>{text}</p>
+        {detail.map((text, index) => {
+          return <p key={index}>{text}</p>
         })}
       </TextBox>
       
