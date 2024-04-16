@@ -259,31 +259,31 @@ function Skills() {
             ?
               <StyledSlide {...settingsResize786}>
                 <div>
-                  <JSIcon />
+                  <JSIcon onClick={() => handleIcons('JS')}/>
                 </div>
                 <div>
-                  <ReactIcon />
+                  <ReactIcon onClick={() => handleIcons('React')}/>
                 </div>
                 <div>
-                  <ReduxIcon />
+                  <ReduxIcon onClick={() => handleIcons('Redux')}/>
                 </div>
                 <div>
-                  <MongodbIcon />
+                  <MongodbIcon onClick={() => handleIcons('MongoDB')}/>
                 </div>
                 <div>
-                  <NodeIcon />
+                  <NodeIcon onClick={() => handleIcons('Node.js')}/>
                 </div>
                 <div>
-                  <ExpressIcon />
+                  <ExpressIcon onClick={() => handleIcons('Express')}/>
                 </div>
                 <div>
-                  <GitIcon />
+                  <GitIcon onClick={() => handleIcons('Git')}/>
                 </div>
                 <div>
-                  <AwsIcon />
+                  <AwsIcon onClick={() => handleIcons('AWS')}/>
                 </div>
                 <div>
-                  <SocketioIcon />
+                  <SocketioIcon onClick={() => handleIcons('Socket.io')}/>
                 </div>
               </StyledSlide>
             : slideWidth <= 540

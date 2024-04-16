@@ -440,7 +440,6 @@ function Header() {
         btn.classList.remove("active");
       }
     })
-    console.log(window.location.href.split('/'));
   }
 
   return (
