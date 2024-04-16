@@ -1,5 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { styled } from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"
 import { ReactComponent as JSIcon } from "../images/JSIcon.svg";
 import { ReactComponent as AwsIcon } from "../images/awsIcon.svg";
 import { ReactComponent as GitIcon } from "../images/gitIcon.svg";
@@ -9,6 +11,7 @@ import { ReactComponent as ReduxIcon } from "../images/reduxIcon.svg";
 import { ReactComponent as ExpressIcon } from "../images/expressIcon.svg";
 import { ReactComponent as MongodbIcon } from "../images/mongodb.svg";
 import { ReactComponent as SocketioIcon } from "../images/socketio_logo_icon.svg";
+import { styled } from 'styled-components';
 
 const Inner = styled.div`
   display: flex;
@@ -32,6 +35,9 @@ const SkillBox = styled.div`
   @media screen and (max-width: 1250px) {
     width: 470px;
   }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
 
   svg {
     margin-top: 20px;
@@ -44,7 +50,6 @@ const SkillBox = styled.div`
   svg.aws,
   svg.socket {
     margin-left: 20px;
-
   }
   svg:hover {
     transform: scale(1.1);
@@ -66,6 +71,9 @@ const TextBox = styled.div`
   @media screen and (max-width: 1250px) {
     width: 505px;
   }
+  @media screen and (max-width: 1024px) {
+    width: 100%;
+  }
   p {
     font-family: "Gowun Batang", serif;
     font-weight: 400;
@@ -75,6 +83,73 @@ const TextBox = styled.div`
     line-height: 1.8rem;
   }
 `;
+
+const StyledSlide = styled(Slider)`
+  & div {
+    position: relative;
+  }
+    
+  .slick-list {
+    padding: 0 40px;
+    /* width: 750px; */
+    height: 200px;
+    margin: 0 auto;
+    background-color: #e9ecef;
+    /* overflow: hidden; */
+  }
+  
+  .slick-prev, .slick-next {
+    position: absolute;
+    z-index: 1;
+  }
+  .slick-prev {
+    opacity: 0.5;
+    left: 20px;
+  }
+  .slick-next {
+    opacity: 0.5;
+    right: 35px;
+
+  }
+
+  .slick-prev:before, .slick-next:before{
+    font-family: 'slick';
+    font-size: 40px;
+    line-height: 1;
+    opacity: .75;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+  }
+`
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+};
+
+const settingsResize786 = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+};
+const settingsResize480 = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+};
+
 
 const detailText = {
   JS: ['· jQuery를 사용하지 않고 문법을 사용할 수 있습니다.', '· 반복문과 조건문을 통해 list를 작성하거나 유효성 검사를 할 수 있습니다.', '· 함수 표현식과 함수 선언문의 차이를 알고 호이스팅을 이해하고 있습니다.', '· 객체나 배열에서 필요한 값을 추출하기 위한 메서드를 알고 있습니다.', '· Promise를 이해하고 있으며 async / await를 통해 비동기 함수를 처리 할 수 있습니다. '],
@@ -94,10 +169,19 @@ function Skills() {
   const [slideWidth, setSlideWidth] = useState('')
   
   useEffect(() => {
-    setSlideWidth(window.innerWidth);
-    console.log(window.innerWidth);
-    console.log(slideWidth);
-  }, [slideWidth]);
+    if (window !== 'undefined') {
+      const handleResize = () => {
+        setSlideWidth(window.innerWidth);
+      };
+      window.addEventListener("resize", handleResize);
+      handleResize();
+      return () => window.removeEventListener("resize", handleResize);
+    } else {
+      return () => window.removeEventListener("resize", () => {
+        return null
+      });
+    }
+  }, []);
 
   function handleIcons(icon) {
     switch (icon) {
@@ -158,18 +242,7 @@ function Skills() {
     <Inner className='mainInner'>
       <SkillBox>
         <h1>Stack</h1>
-          <>
-            <JSIcon onClick={() => handleIcons('JS')}/>
-            <ReactIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('React')}/>
-            <ReduxIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Redux')}/>
-            <MongodbIcon onClick={() => handleIcons('MongoDB')}/>
-            <NodeIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Node.js')}/>
-            <ExpressIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('Express')}/>
-            <GitIcon onClick={() => handleIcons('Git')}/>
-            <AwsIcon className='aws' onClick={() => handleIcons('AWS')}/>
-            <SocketioIcon className='socket' style={{marginLeft: '30px'}} onClick={() => handleIcons('Socket.io')}/>
-          </>
-        {/* slideWidth >= 1024 
+        { slideWidth >= 1024 
           ? 
             <>
               <JSIcon onClick={() => handleIcons('JS')}/>
@@ -182,11 +255,99 @@ function Skills() {
               <AwsIcon className='aws' onClick={() => handleIcons('AWS')}/>
               <SocketioIcon className='socket' style={{marginLeft: '30px'}} onClick={() => handleIcons('Socket.io')}/>
             </>
-          :
-            <>
-              <p>슬라이드 영역</p>
-            </>
-        */}
+          : slideWidth < 880 && slideWidth > 480
+            ?
+              <StyledSlide {...settingsResize786}>
+                <div>
+                  <JSIcon />
+                </div>
+                <div>
+                  <ReactIcon />
+                </div>
+                <div>
+                  <ReduxIcon />
+                </div>
+                <div>
+                  <MongodbIcon />
+                </div>
+                <div>
+                  <NodeIcon />
+                </div>
+                <div>
+                  <ExpressIcon />
+                </div>
+                <div>
+                  <GitIcon />
+                </div>
+                <div>
+                  <AwsIcon />
+                </div>
+                <div>
+                  <SocketioIcon />
+                </div>
+              </StyledSlide>
+            : slideWidth <= 540
+              ?
+                <StyledSlide {...settingsResize480}>
+                  <div>
+                    <JSIcon />
+                  </div>
+                  <div>
+                    <ReactIcon />
+                  </div>
+                  <div>
+                    <ReduxIcon />
+                  </div>
+                  <div>
+                    <MongodbIcon />
+                  </div>
+                  <div>
+                    <NodeIcon />
+                  </div>
+                  <div>
+                    <ExpressIcon />
+                  </div>
+                  <div>
+                    <GitIcon />
+                  </div>
+                  <div>
+                    <AwsIcon />
+                  </div>
+                  <div>
+                    <SocketioIcon />
+                  </div>
+                </StyledSlide>
+              :
+                <StyledSlide {...settings}>
+                  <div>
+                    <JSIcon />
+                  </div>
+                  <div>
+                    <ReactIcon />
+                  </div>
+                  <div>
+                    <ReduxIcon />
+                  </div>
+                  <div>
+                    <MongodbIcon />
+                  </div>
+                  <div>
+                    <NodeIcon />
+                  </div>
+                  <div>
+                    <ExpressIcon />
+                  </div>
+                  <div>
+                    <GitIcon />
+                  </div>
+                  <div>
+                    <AwsIcon />
+                  </div>
+                  <div>
+                    <SocketioIcon />
+                  </div>
+                </StyledSlide>
+        }
         {/* <div>
           <JSIcon onClick={() => handleIcons('JS')}/>
           <ReactIcon style={{marginLeft: '25px'}} onClick={() => handleIcons('React')}/>
