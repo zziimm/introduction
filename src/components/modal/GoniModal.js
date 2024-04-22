@@ -1,7 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import GoniModalSlide from '../slide/GoniModalSlide';
-import { FaGithub  } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
+import { TbHomeSearch } from "react-icons/tb";
 
 
 const ModalBg = styled.div`
@@ -89,6 +90,19 @@ const ModalBox = styled.div`
       transition: 0.3s;
     }
   }
+  .visit {
+    text-decoration: none;
+    margin-top: 10px;
+    background: #357ef2;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      background: #76a7f5;
+      transition: 0.3s;
+    }
+  }
 
   .summaryHeader {
     margin: 10px 0 20px 0 ;
@@ -143,6 +157,7 @@ function goniModal({ handleCloseMadal }) {
               <span className='toolText be'>Express</span>
               <span className='toolText be'>Passport</span>
             </p>
+            <a href='https://minton1000.netlify.app/' target='_blank' rel='noreferrer noopener' className='toolText visit'><TbHomeSearch /> Visit</a>
             <a href='https://github.com/zziimm/teamstrong1000' target='_blank' rel='noreferrer noopener' className='toolText git'><FaGithub /> Github FE</a>
             <a href='https://github.com/zziimm/teamServer' target='_blank' rel='noreferrer noopener' className='toolText git'><FaGithub /> Github BE</a>
             <p className='summaryHeader'>📋Summary</p>
