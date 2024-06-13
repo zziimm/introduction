@@ -174,6 +174,16 @@ function goniModal({ handleCloseMadal }) {
                 <span>· FullCalendar 라이브러리에 google calendar api를 적용하였습니다.</span>
                 <span>. FE에선 Redux Store, BE에서는 passport로 미들웨어를 설정해 회원을 식별합니다.</span>
               </p>
+              {/* <p className='summaryInfo'>
+                <span>· 지역 내 배드민턴 활동을 활성화하기 위해 개발하게 되었습니다.</span>
+                <span>· 경기를 등록해 신청을 받고 경기 후에는 승패여부를 기록 할 수 있으며,</span>
+                <span>등록/신청 시 내일정에 일정이 바로 추가됩니다.</span>
+                <span>· 소통을 위한 클럽 기능과 커뮤니티 기능을 지원합니다.</span>
+                <span>· 회원가입 시 비밀번호를 bcrypt로 암호화하여 지정된 양식에 맞는 회원정보를 입력받기 위해 유효성 검사를 진행합니다.</span>
+                <span>· 지도는 NaverMap api를 사용하여 체육관을 확인할 수 있습니다.</span>
+                <span>· FullCalendar 라이브러리에 google calendar api를 적용하였습니다.</span>
+                <span>. FE에선 Redux Store, BE에서는 passport로 미들웨어를 설정해 회원을 식별합니다.</span>
+              </p> */}
             </div>
           </div>
         </div>
