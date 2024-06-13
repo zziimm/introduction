@@ -13,6 +13,11 @@
 
 **최적화 달성을 위해 멈추지 않고 걸어나아가는 개발자입니다 !**
 
+
+###skills
+<img src="https://img.shields.io/badge/React-#61DAFB?style=flat-square&logo=react&logoColor=white"/>
+<img src="https://img.shields.io/badge/Redux-#764ABC?style=flat-square&logo=redux&logoColor=white"/>
+<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white"/>
 <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white"/>
 
 **email: :** 
